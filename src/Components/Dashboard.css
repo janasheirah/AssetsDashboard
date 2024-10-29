@@ -1,0 +1,195 @@
+/* .dashboard {
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: "Poppins";
+    color: #005F87;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #3B5998;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 180px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #8A8A8A;
+}
+
+.card-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-icon {
+    font-size: 24px;
+    color: #3B5998;
+}
+
+// ..............
+*/
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+ 
+.dashboard-heading {
+  font-size: 2rem;
+  color: #005F87;
+  margin-bottom: 20px;
+  font-family: "Poppins";
+  font-weight: normal;
+}
+ 
+.dashboard-cards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ 
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 10.0);
+  width: 300px; 
+  height: 80px;
+  margin-right: 50px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h2 {
+    font-size: 24px;
+    color: #8a94a6;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.card-content p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background: #3a647a; /* Blue color for the icon box */
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for the icon box */
+}
+  
+.card-icon {
+    color: #fff;
+    font-size: 24px;
+}
+
+.bar-charts-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 60px;
+}
+
+.pie-charts-container {
+    display: flex;
+    gap: 20px;
+}
+
+.analytics-bar {
+    flex: 1;
+}
+
+.analytics-bar {
+    border: 2px solid lightgray;
+    border-radius: 20px;
+    max-width: 1760px;
+    height: 376px;
+}
+
+.pie-chart, .pie-chart-asset-status, .pie-chart-asset-expiry {
+    border: 2px solid lightgray;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.icon-container-back {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.back-arrow {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #005F87;
+}
+
+.dashboard-cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+  
+.card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+    min-width: 80px;
+}
+  
+.card h2 {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+  
+.card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
