@@ -6,17 +6,28 @@ import { MdPeople, MdSettings, MdBuild, MdUpdate, MdInsertChart, MdComputer, MdC
 import apiService from './../apiService.js';
 import './Dashboard.css'
 import { Laptop } from '@mui/icons-material';
+import './AssetTable.css'; // Import your CSS file
+
 
 
 
 const useDashboardData = () => {
+    const [totalUsers, setTotalUsers] = useState(0);
+    const [totalAssets, setTotalAssets] = useState(0);
     const [assetsInUse, setAssetsInUse] = useState(0);
+    const [assetsUnderMaintenance, setAssetsUnderMaintenance] = useState(0);
 
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
+                const totalUsersData = await apiService.getTotalUsersCount();
+                const totalAssetsData = await apiService.getTotalAssetsCount();
                 const inUseData = await apiService.getAssignedAssetsCount();
+                const assetsUnderMaintenanceData = await apiService.getAssetsUnderMaintenanceCount();
+                setTotalUsers(totalUsersData);
+                setTotalAssets(totalAssetsData);
                 setAssetsInUse(inUseData);
+                setAssetsUnderMaintenance(assetsUnderMaintenanceData);
             } catch (error) {
     
             } finally {
@@ -28,9 +39,13 @@ const useDashboardData = () => {
     }, []);
 
     return {
-        assetsInUse
+        totalUsers,
+        totalAssets,
+        assetsInUse,
+        assetsUnderMaintenance
     };
 };
+
 
 
 
@@ -191,15 +206,15 @@ const Dashboard = () => {
             
             <div className="pie-charts-container">
             <div className="pie-chart">
-            <div className="piechart-title">
-                 <h2>Asset Distribution</h2>
+            {/*<div className="piechart-title">
+                 <h2>Asset Distribution</h2>*/}
             <div className="legend-dropdown">
              <select id="Year-filter" className="Year-filter" value={selectedYear} onChange={handleYearChange} >
                     <option value={2022}>2022</option>
                     <option value={2023}>2023</option>
                 </select> 
                 </div>
-                </div>
+                {/*</div>*/}
 
                 <Plot
                     data={[
@@ -210,8 +225,8 @@ const Dashboard = () => {
             </div>
             
             <div className="pie-chart-asset-status">
-            <div className="piechart-title">
-            <h2>Asset Status</h2>
+            {/*<div className="piechart-title">
+            <h2>Asset Status</h2>*/}
             <div className="legend-dropdown">
              <select id="Category-filter" className="Category-filter" value={selectedCategory} onChange={handleCategoryChange} >
                     <option value={"Laptops"}>"Laptops"</option>
@@ -225,7 +240,7 @@ const Dashboard = () => {
 
                 </select>        
                 </div>
-                </div>
+                {/*</div>*/}
                 <Plot
                     data={[
                         { labels: ['Assigned', 'Spare', 'In Maintenance', 'Active'], values: data.categoryData[selectedCategory], type: 'pie', name: 'Asset Distribution' }
@@ -234,15 +249,15 @@ const Dashboard = () => {
                 />
             </div>
             <div className="pie-chart-asset-expiry">
-            <div className="piechart-title">
-            <h2>End Dates for Laptop</h2>
+            {/*<div className="piechart-title">
+            <h2>End Dates for Laptop</h2>*/}
             <div className="legend-dropdown">
              <select id="Year-filter" className="Year-filter" value={selectedYear} onChange={handleYearChange} >
                     <option value={2022}>2022</option>
                     <option value={2023}>2023</option>
                 </select> 
                 </div>
-                </div>
+                {/*</div>*/}
                 <Plot
                     data={[
                         { labels: ['Replacement', 'Not Replacement'], values: data.yearData[selectedYear].ReplacementData, type: 'pie', name: 'End Dates for Laptop' }
@@ -258,6 +273,34 @@ const Dashboard = () => {
                 <div className="assets-content">
                     <h2>Assets Section</h2>
                     <p>Details about assets can be displayed here.</p>
+                    <table className="asset-table">
+      <thead>
+        <tr data-href="#">
+          <th>#</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Purchase Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, index) => (
+          <tr key={row.id} data-href="#">
+            <td>{index + 1}</td>
+            <td>{row.name}</td>
+            <td>{row.category}</td>
+            <td>{row.brand}</td>
+            <td>{row.model}</td>
+            <td>{row.purchaseDate}</td>
+            <td>
+              <span className={`status ${row.status}`}>{row.status}</span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
                 </div>
             )}
         </div>

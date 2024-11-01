@@ -1,0 +1,107 @@
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px 0px 0px 0px;
+    overflow: hidden;
+}
+
+/* Header and Body */
+.table th, .table td {
+    border: 1px solid #ddd;
+    width: 251px;
+    padding: 12px;
+    text-align: left;
+}
+
+.table th {
+    background-color: rgba(46, 141, 174, 0.12);
+    color: #464646;
+}
+
+/* Header Styling */
+.headerContainer {
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
+.headerContainer .icon {
+    margin-left: 10px;
+}
+
+/* Table Row Styles */
+.table tr {
+    color: #74828F;
+    cursor: pointer;
+}
+
+.table th:hover {
+    background-color: rgba(46, 141, 174, 0.24);
+}
+
+.table tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Remove Borders from Table Elements */
+.table td, .table th {
+    border: none;
+}
+
+/* Status Badge Styling */
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    color: #222222;
+}
+
+/* Status Colors */
+.spare {
+    background-color: #b1e6f7;
+    border-color: #b1e6f7;
+}
+
+.assigned {
+    background-color: #d4f8d3;
+    border-color: #d4f8d3;
+}
+
+.inmaintenance {
+    background-color: #f8f4d3;
+    border-color: #f8f4d3;
+}
+
+.inactive {
+    background-color: #eda7ab;
+    border-color: #eda7ab;
+}
+
+/* Footer Pagination */
+.tfoot {
+    width: 100%; /* Ensure it spans the entire width */
+    background-color: rgba(46, 141, 174, 0.2);
+    color: #687182;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+}
+
+.leftContainer, .rightContainer {
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust Icons */
+.rightContainer svg {
+    cursor: pointer;
+    font-size: 24px;
+}
