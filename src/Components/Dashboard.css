@@ -83,6 +83,25 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 }
+<<<<<<< HEAD
+=======
+ 
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  width: 300px; 
+  height: 80px;
+  margin-right: 50px;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+>>>>>>> 82173f933827de95a6d767f6284877d6d6c6d348
 
 .card-content {
     display: flex;
@@ -120,31 +139,83 @@ h2 {
 }
 
 .bar-charts-container {
-    margin-top: 20px;
-    display: flex;
-    gap: 60px;
+    
+    border-style:outset;
+    width: 100%; /* Fixed width for the container */
+    justify-content: space-between;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    box-sizing:border-box;
+   
 }
 
 .pie-charts-container {
     display: flex;
     gap: 20px;
-}
 
+}
+/*
 .analytics-bar {
     flex: 1;
 }
 
 .analytics-bar {
-    border: 2px solid lightgray;
     border-radius: 20px;
-    max-width: 1760px;
     height: 376px;
-}
+    justify-content: space-between;
+    display: flex;
 
+}*/
+
+.chart-title {
+    display: flex;
+    justify-content: space-between; /* This aligns items to the left and right */
+    align-items: center;
+    margin-bottom: 10px;
+}
+.piechart-title h2{
+    align-items:center;
+    text-align: center;
+}
+.chart-title h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    
+}
+.legend-dropdown {
+    display: flex;
+    align-items: center;
+
+}
+.year-filter {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    cursor: pointer;
+
+}
+.Category-filter {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    cursor: pointer;
+}
 .pie-chart, .pie-chart-asset-status, .pie-chart-asset-expiry {
     border: 2px solid lightgray;
     border-radius: 20px;
     margin-top: 30px;
+    border-style:outset;
+
 }
 
 .icon-container-back {
@@ -190,4 +261,39 @@ h2 {
 .card p {
     font-size: 1.2rem;
     font-weight: bold;
+}
+/* Tabs container styling */
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #E6F1F5;
+}
+
+/* Style for each tab button */
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #005F87;
+}
+
+/* Style for active tab */
+.tab-button.active {
+    border-bottom: 2px solid #005F87;
+    color: #005F87;
+    background-color: #FFFFFF;
+}
+
+/* Style for inactive tab */
+.tab-button:not(.active) {
+    color: #005F87;;
+}
+
+/* Content containers for each tab */
+.charts-content, .assets-content {
+    margin-top: 20px;
 }
