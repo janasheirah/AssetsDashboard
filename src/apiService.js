@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/admin-dashboard/assets'; // Update to your backend URL
+const API_URL = 'http://localhost:8080/admin/dashboard'; // Update to your backend URL
 
 const apiService = {
     async getTotalUsersCount() {
@@ -14,7 +14,7 @@ const apiService = {
     },
     async getTotalAssetsCount() {
         try {
-            const response = await fetch(`${API_URL}/count`);
+            const response = await fetch(`${API_URL}/count-assets`);
             if (!response.ok) {
                 throw new Error(`Error fetching total assets count: ${response.statusText}`);
             }

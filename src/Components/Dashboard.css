@@ -1,61 +1,3 @@
-/* .dashboard {
-    padding: 20px;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    font-family: "Poppins";
-    color: #005F87;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #3B5998;
-}
-
-.dashboard-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #f7f7f7;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 180px;
-}
-
-.card-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-title {
-    font-weight: 600;
-    color: #8A8A8A;
-}
-
-.card-value {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-.card-icon {
-    font-size: 24px;
-    color: #3B5998;
-}
-
-// ..............
-*/
-
 .dashboard-container {
   display: flex;
   flex-direction: column;
@@ -83,8 +25,6 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 }
-<<<<<<< HEAD
-=======
  
 .card {
   display: flex;
@@ -101,7 +41,6 @@ h2 {
   margin: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
->>>>>>> 82173f933827de95a6d767f6284877d6d6c6d348
 
 .card-content {
     display: flex;

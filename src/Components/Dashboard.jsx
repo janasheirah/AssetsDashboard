@@ -8,9 +8,6 @@ import './Dashboard.css'
 import { Laptop } from '@mui/icons-material';
 import './AssetTable.css'; // Import your CSS file
 
-
-
-
 const useDashboardData = () => {
     const [totalUsers, setTotalUsers] = useState(0);
     const [totalAssets, setTotalAssets] = useState(0);
@@ -313,18 +310,6 @@ const Dashboard = () => {
 
     );
   };
-
-const Card = ({ title, value, icon}) => {
-    return (
-        <div className="card">
-            <div className="card-content">
-                <div className="card-title">{title}</div>
-                {value && <div className="card-value">{value}</div>}
-            </div>
-            <div className="card-icon">{icon}</div>
-        </div>
-    );
-};
 
 export default Dashboard;
 
