@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:8080/admin-dashboard/assets'; // Update to you
 const apiService = {
     async getTotalUsersCount() {
         try {
-            const response = await fetch(`${API_URL}/count-assigned`);
+            const response = await fetch(`${API_URL}/count-users`);
             if (!response.ok) {
                 throw new Error(`Error fetching total users count: ${response.statusText}`);
             }
@@ -39,6 +39,17 @@ const apiService = {
             const response = await fetch(`${API_URL}/count-in-maintenance`);
             if (!response.ok) {
                 throw new Error(`Error fetching under maintenance assets count: ${response.statusText}`);
+            }
+            return await response.json();
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+    async getAssetsCategoryCount() {
+        try {
+            const response = await fetch(`${API_URL}/count-categories`);
+            if (!response.ok) {
+                throw new Error(`Error fetching category count: ${response.statusText}`);
             }
             return await response.json();
         } catch (error) {

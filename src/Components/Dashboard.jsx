@@ -16,6 +16,7 @@ const useDashboardData = () => {
     const [totalAssets, setTotalAssets] = useState(0);
     const [assetsInUse, setAssetsInUse] = useState(0);
     const [assetsUnderMaintenance, setAssetsUnderMaintenance] = useState(0);
+    const [assetsByCategory, setAssetsByCategory] = useState([]); // New state for category data
 
     useEffect(() => {
         const fetchDashboardData = async () => {
@@ -24,10 +25,12 @@ const useDashboardData = () => {
                 const totalAssetsData = await apiService.getTotalAssetsCount();
                 const inUseData = await apiService.getAssignedAssetsCount();
                 const assetsUnderMaintenanceData = await apiService.getAssetsUnderMaintenanceCount();
+                const categoryData = await apiService.getAssetsCategoryCount(); // Fetch category data
                 setTotalUsers(totalUsersData);
                 setTotalAssets(totalAssetsData);
                 setAssetsInUse(inUseData);
                 setAssetsUnderMaintenance(assetsUnderMaintenanceData);
+                setAssetsByCategory(categoryData); // Set category data
             } catch (error) {
     
             } finally {
@@ -42,7 +45,9 @@ const useDashboardData = () => {
         totalUsers,
         totalAssets,
         assetsInUse,
-        assetsUnderMaintenance
+        assetsUnderMaintenance,
+        assetsByCategory // Include in return
+
     };
 };
 
@@ -92,7 +97,7 @@ const Dashboard = () => {
      const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
     };
-    const { assetsInUse } = useDashboardData();
+    /*const { assetsInUse } = useDashboardData();*/
     const [frames, setFrames] = useState([]);
 
     useEffect(() => {
@@ -113,7 +118,8 @@ const Dashboard = () => {
         });
 
         setFrames(frames);
-    }, []);
+    }, []); 
+    const { assetsByCategory, assetsInUse, totalAssets, totalUsers, assetsUnderMaintenance } = useDashboardData();
 
 
     return (
@@ -154,7 +160,7 @@ const Dashboard = () => {
                 <div className="card">
                     <div className="card-content">
                         <h2 className="card-title">Total Assets</h2>
-                        <p className="card-stats">8,300</p>
+                        <p className="card-stats">{totalAssets}</p>
                     </div>
                     <div className="icon-container">
                         <MdComputer className="card-icon" />
@@ -163,7 +169,7 @@ const Dashboard = () => {
                 <div className="card">
                     <div className="card-content">
                         <h2 className="card-title">Assets in Use</h2>
-                        <p className="card-stats">{assetsInUse.toLocaleString()}</p>
+                        <p className="card-stats">{assetsInUse}</p>
                     </div>
                     <div className="icon-container">
                         <MdCheckBox className="card-icon" />
@@ -172,7 +178,7 @@ const Dashboard = () => {
                 <div className="card">
                     <div className="card-content">
                         <h2 className="card-title">Assets Under Maintenance</h2>
-                        <p className="card-stats">2,500</p>
+                        <p className="card-stats">{assetsUnderMaintenance}</p>
                     </div>
                     <div className="icon-container">
                         <MdBuild className="card-icon" />
